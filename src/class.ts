@@ -1,30 +1,31 @@
-export class IntXY {
-  private _x: number
-  private _y: number
+export class Int {
+  private _val: number
 
-  constructor(x: number, y: number) {
-    this._x = Math.trunc(x)
-    this._y = Math.trunc(y)
+  constructor(val: number) {
+    this._val = toInt(val)
   }
 
-  get x() {
-    return this._x
-  }
-  get y() {
-    return this._y
-  }
-  set x(x: number) {
-    this._x = Math.trunc(x)
-  }
-  set y(y: number) {
-    this._y = Math.trunc(y)
+  get val() {
+    return this._val
   }
 
-  add({x, y}: IntXY): IntXY {
-    return new IntXY(this.x + x, this.y + y)
+  set val(val: number) {
+    this._val = toInt(val)
   }
-  addTo({x, y}: IntXY): void {
-    this.x += x
-    this.y += y
+
+  add(int: Int): Int {
+    return new Int(this.val + int.val)
   }
+
+  addTo(int: Int): void {
+    this.val += int.val
+  }
+}
+
+function toInt(val: number): number {
+  if (Number.isNaN(val))
+    throw new Error(`${val} is not convertible to an integer.`)
+  if (val > Number.MAX_SAFE_INTEGER) return Number.MAX_SAFE_INTEGER
+  if (val < Number.MIN_SAFE_INTEGER) return Number.MIN_SAFE_INTEGER
+  return Math.trunc(val)
 }
