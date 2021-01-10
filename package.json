@@ -1,0 +1,30 @@
+{
+  "name": "state-and-ops",
+  "author": "Stephen Niedzielski <stephen@niedzielski.com> (https://niedzielski.com)",
+  "version": "0.0.0",
+  "license": "GPL-3.0-only",
+  "description": "State and its operators in TypeScript.",
+  "keywords": [
+    "typescript",
+    "program design"
+  ],
+  "homepage": "https://github.com/niedzielski/state-and-ops",
+  "repository": "github:niedzielski/state-and-ops",
+  "bugs": "https://github.com/niedzielski/state-and-ops/issues",
+  "scripts": {
+    "test": "npm -s run formatter -- -l && tsc && jest",
+    "format": "npm -s run formatter -- -w",
+    "formatter": "prettier './**/*.{md,ts}'"
+  },
+  "engines": {
+    "node": "15.2.1",
+    "npm": "7.0.8"
+  },
+  "devDependencies": {
+    "jest": "26.6.3",
+    "pre-commit": "1.2.2",
+    "prettier": "2.2.1",
+    "ts-jest": "26.4.4",
+    "typescript": "4.1.3"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "testPathIgnorePatterns": ["/node_modules/"],
+  "transform": {".+\\.ts$": "ts-jest"},
+  "collectCoverage": true,
+  "coverageDirectory": "dist/coverage",
+  "coveragePathIgnorePatterns": ["/node_modules/"],
+  "errorOnDeprecated": true,
+  "coverageThreshold": {
+    "global": {
+      "statements": "100",
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    }
+  }
+}
