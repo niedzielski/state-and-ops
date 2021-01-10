@@ -3,8 +3,8 @@ export class IntXY {
   private _y: number
 
   constructor(x: number, y: number) {
-    this._x = ~~x
-    this._y = ~~y
+    this._x = Math.trunc(x)
+    this._y = Math.trunc(y)
   }
 
   get x() {
@@ -14,10 +14,10 @@ export class IntXY {
     return this._y
   }
   set x(x: number) {
-    this._x = ~~x
+    this._x = Math.trunc(x)
   }
   set y(y: number) {
-    this._y = ~~y
+    this._y = Math.trunc(y)
   }
 
   add({x, y}: IntXY): IntXY {
