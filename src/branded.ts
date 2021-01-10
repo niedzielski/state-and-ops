@@ -14,6 +14,7 @@ export function Int(val: number): Int {
 
 // This can be made more generic as a constrained RangeInt / DomainInt / ...
 export namespace Int {
+  /** Truncate with saturation. */
   export function tryTo(value: number): Int | undefined {
     if (Number.isNaN(value)) return
     if (value > Number.MAX_SAFE_INTEGER) return <Int>Number.MAX_SAFE_INTEGER

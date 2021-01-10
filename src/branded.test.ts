@@ -14,7 +14,7 @@ describe('Int()', () => {
     ['positive fraction', 1.5, 1],
     ['max fraction', Number.MAX_VALUE, Number.MAX_SAFE_INTEGER],
     ['positive infinity', Number.POSITIVE_INFINITY, Number.MAX_SAFE_INTEGER]
-  ])('%s', (_, value, expected) => expect(Int(value)).toStrictEqual(expected))
+  ])('%s', (_, val, expected) => expect(Int(val)).toStrictEqual(expected))
 
   test('not a number', () => expect(() => Int(NaN)).toThrow())
 })
@@ -26,7 +26,7 @@ describe('assert()', () => {
     ['zero', 0],
     ['positive integer', 1],
     ['max safe integer', Number.MAX_SAFE_INTEGER]
-  ])('%s', (_, value) => Int.assert(value))
+  ])('%s', (_, val) => Int.assert(val))
 
   test.each([
     ['negative infinity', Number.NEGATIVE_INFINITY],
@@ -36,7 +36,7 @@ describe('assert()', () => {
     ['max fraction', Number.MAX_VALUE],
     ['positive infinity', Number.POSITIVE_INFINITY],
     ['not a number', NaN]
-  ])('%s', (_, value) => expect(() => Int.assert(value)).toThrow())
+  ])('%s', (_, val) => expect(() => Int.assert(val)).toThrow())
 })
 
 describe('is()', () => {
@@ -46,7 +46,7 @@ describe('is()', () => {
     ['zero', 0],
     ['positive integer', 1],
     ['max safe integer', Number.MAX_SAFE_INTEGER]
-  ])('%s', (_, value) => expect(Int.is(value)).toStrictEqual(true))
+  ])('%s', (_, val) => expect(Int.is(val)).toStrictEqual(true))
 
   test.each([
     ['negative infinity', Number.NEGATIVE_INFINITY],
@@ -56,7 +56,7 @@ describe('is()', () => {
     ['max fraction', Number.MAX_VALUE],
     ['positive infinity', Number.POSITIVE_INFINITY],
     ['not a number', NaN]
-  ])('%s', (_, value) => expect(Int.is(value)).toStrictEqual(false))
+  ])('%s', (_, val) => expect(Int.is(val)).toStrictEqual(false))
 })
 
 describe('example', () => {
@@ -77,6 +77,9 @@ describe('example', () => {
   })
 
   test('declarative', () => {
+    // The type checker is used to make sure there's no confusion with classes,
+    // which require the `new` keyword for instantiation, is made. Both calling
+    // a class without the keyword and calling a function with are errors.
     expect({x: Int(1), y: Int(2)}).toStrictEqual({x: 1, y: 2})
   })
 })
