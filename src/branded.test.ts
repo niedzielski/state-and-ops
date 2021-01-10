@@ -58,3 +58,25 @@ describe('is()', () => {
     ['not a number', NaN]
   ])('%s', (_, value) => expect(Int.is(value)).toStrictEqual(false))
 })
+
+describe('example', () => {
+  test('mutability', () => {
+    let int = Int(1)
+    int = Int(2)
+    expect(int).toStrictEqual(Int(2))
+  })
+
+  test('Int + Int === number', () => {
+    const result: number = Int(1) + Int(2)
+    expect(result).toStrictEqual(Int(3))
+  })
+
+  test('Int + number === number', () => {
+    const result: number = Int(1) + 2.3
+    expect(result).toStrictEqual(3.3)
+  })
+
+  test('declarative', () => {
+    expect({x: Int(1), y: Int(2)}).toStrictEqual({x: 1, y: 2})
+  })
+})
